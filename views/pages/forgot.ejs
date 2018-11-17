@@ -1,0 +1,48 @@
+<%- contentFor('hero') %> 
+   <div id='m'> 
+    <div class="container-fluid">
+         <h2 class="regist"> FOGOTTEN PASSWORD</h2>
+        <div class="jumbotron text-center" id='mist'>
+        <% if (error_msg.length>0){ %>
+  
+  
+   <h3> <div class="alert-danger"><%=error_msg%></div> </h3>
+  
+  <% }  %>
+        <span class="alert-info">
+        <p>
+            If you have forgotten your password, enter your email address below and check your email for instructions on resetting your password.
+            
+            
+            </p>
+        
+        
+        
+        </span>
+      <form class="form-horizontal" role="form"  method="post" action="/forgot_pass">
+<div class="form-group">
+  <label for ="email" class="form-item" >Email</label>
+    
+    <input type="email" class="col-lg-10  form-item" id="email" name="email" placeholder="example@domain.com" value="" required>
+        
+    
+    <br>
+    <br>
+    <div class="form-group">
+        
+    <div class="form-group">
+    <div class="col-sm-10 col-sm-offset-2">
+        <input id="submit" name="submit" type="submit" value="Submit" class="btn-primary">
+        </div>
+        
+        
+        </div>
+        </div>
+          </div>
+
+    
+   </form> 
+   
+    </div>
+        </div>
+    

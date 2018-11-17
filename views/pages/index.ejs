@@ -1,0 +1,60 @@
+
+ <%- contentFor('hero') %>
+<section class="hero">
+    <div class ="hero-content">
+        <% if(!user) { %>
+        <% if (locals.success_msg.length>0){ %>
+
+    <span><h3 class="alert alert-success"><%=success_msg%> </h3> </span>
+
+  <% }  %>
+
+       <% if (locals.error_msg.length>0){ %>
+
+  <% for (const error_msg of locals.error_msg){ %>
+  </span> <h3 class=" alert alert-danger"><%=error_msg%></h3> </span>
+  <% } %>
+  <% }  %>
+        <div class="form-group">
+
+    <form id ="contact-form" method="POST" action="/profile">
+
+        <label for="username" style="color:aqua;">Username</label>
+      <input  name="username" type ="text" value="" accept="text/plain" id="username"required  class="inp-lg"/>
+        <br>
+
+        <label for="password" style="color:aqua;"> Password</label>  <input name ="password" type="password" value="" required class="inp-lg" id="password"/>
+
+        <br>
+        <br>
+
+
+
+
+
+
+            <input type ="submit" class="btn btn-lg btn-primary" value="login"> <br>
+
+          </form><br>
+
+ <form method="get" action="/signup">
+
+        <input type ="submit" value="Signup" class ="btn btn-lg btn-primary">
+
+        </form>
+        <br>
+        <span class="alert-danger">
+            <a href="/forgot_pass">FORGOT PASSWORD</a>
+        </span>
+    <% }  %>
+        </div>
+        </div>
+    </section>
+
+        <div class ="container">
+        <div class ="jumbotron text-center">
+
+           Home Page  </div>
+
+
+        </div>

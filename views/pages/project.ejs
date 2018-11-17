@@ -1,0 +1,35 @@
+<%-contentFor('hero')%>
+<div class='container ' >
+<h3 class='regist text-center'> MY USER INFORMATION </h3> 
+<div class='jumbotron'>
+
+<u class='list-group-sm'  id='users'> 
+
+<%
+ if(users.length>0){
+users.forEach(function(results){%>
+
+<br>
+ <li class='list-group-item'> Name:  <%-results.name%></li>
+
+ <li class='list-group-item'> Email:  <%-results.username%></li>
+
+ <li class='list-group-item'> ID :    <%-results._id%></li>
+ <br>
+
+<%})
+ }
+
+
+%>
+
+
+
+
+</u>
+
+
+
+</div>
+
+</div>

@@ -1,0 +1,46 @@
+ <%- contentFor('hero') %>
+   
+    <div class="container jumbotron container-fluid" >
+        <div id='mist'>
+            <!--  ADD THE JAVASCRIPT FILES VIA THE SCRIPT TAGE -->
+            <script type="text/javascript" src="p5/sketch.js"></script>
+        
+            
+                <p id='intro'>
+                    THIS SITE WAS DEVELOPED TO HOST JAVASCRIPT AND PROCESSINGJS PROJECTS <br> ONLY AUTHORIZED USERS WILL BE ABLE TO BROWSE THROUGH ALL OF THE PROJECTS
+   <!--    THIS HTML TEMPLATE  AND SOME OF ITS ELEMENTS ARE USED BY THE P5JS DOM AP1 -->
+           <select id="mysel"> 
+                    <option value="DEFAULT">DEFAULT</option>
+                    <option value ="LIST EDITOR">LIST EDITOR</option>
+                    <option value ='MEDIA PLAYER'>MEDIA PLAYER</option>
+                 <option value ='WEBCAM'>WEB CAM </option>
+                <option value="watch">MY TIME</option>
+                    
+                    
+                    
+                    </select>
+
+                    <div class="form-input">
+                        <div id="inp_stuff">
+                        <label id="labe">ITEM:</label>
+                             <input type='text' id="inp"> <br>
+                        </div>
+                       
+                         <div id="buts">
+                        
+                        <input type="button" value="ADD TO LIST" id="btn">
+                        <input type="button" value="REMOVE ITEMS" id="btn2">
+                        <input type="button" value="ACCESS WEB CAM" id="btn3"> <br>
+                             
+                             
+                             <h2 class="res"> LIST</h2>
+                    </div>
+                        </div>
+                  
+                    
+                    <ul id="thelist"></ul>
+            </div>
+
+        </div>
+
+

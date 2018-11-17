@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset ="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    MY BACKEND JAVASCRIPT
+
+    </title>
+
+        <link rel="stylesheet" href="css/styles.css">
+    <link rel ="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" >
+
+    <script src="jquery/dist/jquery.slim.js"></script>
+  <script src='popper.js/dist/popper.min.js'></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+
+    <script language="javascript" src="p5/lib/p5.min.js"></script>
+    <script language="javascript" src="p5/lib/addons/p5.dom.min.js"></script>
+    <script language="javascript" src="p5/lib/addons/p5.sound.min.js"></script>
+    </head>
+<body>
+    <header>
+        <nav class="navbar bg-dark nav-tabs">
+         <% if (!user){ %>
+
+        <a href ="/" class="navbar-brand nav-link">MAXDEL</a>
+
+             <% }  %>
+         <ul class ="nav ">
+
+            <% if (!user){ %>
+     %>  <a class='fa fa-home nav-link' href="/">Home</a>
+   <% } %>
+
+
+
+
+        <a class='nav-link' href="/contact">Contact us</a>
+            <% if (user){ %>
+            <a   class='nav-link' href="/about">projects</a>
+            <a  class='nav-link' href="/profile"> Profile</a>
+             <a id ='logout' class=' nav-link'href="/logout">Sign out</a>
+
+                <a class='nav-link disabled' data-toggle="modal"  href=''data-target="#myModal">Delete Account</a>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <span class="regist"><h3 class="modal-title">DELETE ACCOUNT</h3></span>
+      </div>
+      <div class="modal-body">
+          <p class="alert-warning"> CONFIRM WITH YOUR USERNAME TO DELETE ACCOUNT </p>
+       <form  id="delete_form" method="post" action="/delete" >
+          <div class="jumbotron">
+        <label for="password"> Username</label>
+         <input type="text"  name="name" placeHolder="Enter email"  required>
+           <br>
+           </div>
+
+      <div class="modal-footer">
+          <button  onclick="form_submit()" class="btn btn-default" data-dismiss="modal" >Delete Account </button>
+      </div>
+
+          </form>
+          <script  type="text/javascript">
+
+       function form_submit() {
+    document.getElementById("delete_form").submit();
+   }
+
+          </script>
+    </div>
+      </div>
+  </div>
+</div>
+  </li>
+
+  <% }  %>
+
+        </ul>
+        </nav>
+   </header>
+
+    <div class="main-content">
+
+
+    <%-defineContent('hero') %>
+
+
+   <!---   MAIN CONTENT ON ALL PAGES--->
+
+    </div>
+    <footer class='bg-dark'>
+     ALL RIGHTS RESERVED . COPYRIGHT 2018.
+    </footer>
+
+
+
+
+    </body>
+
+
+
+
+</html>

@@ -1,0 +1,49 @@
+ <%- contentFor('hero') %>
+<script type="text/javascript">          
+</script>
+<div class ="container-fluid">
+   
+  <h2 class="regist"> REGISTRATION PAGE</h2>
+    <div class="jumbotron ">
+<% if (locals.error.length>0){ %>
+  
+  <% for (const error of locals.error){ %> 
+    <div class="alert-danger"><h3><%= error.msg %></h3> </div> 
+  <% } %>
+  <% }  %>
+ <% if (error_msg.length>0){ %>
+  
+  
+   <h3> <div class="alert-danger"><%=error_msg%></div> </h3>
+  
+  <% }  %>
+<form class ="jumbotron" method="post" action="/signup" name="myforms">
+ <div class="form-group">
+      <label for="text">Name:</label>
+      <input type="text" class="form-control"  name="name"id=" name" placeholder="Enter full name" >
+    </div>
+ <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+    </div>
+  
+   <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" name="password"id="pwd" placeholder="Enter Password" required>
+    </div>
+  <div class="form-group">
+    <label for="repwd">Retype Password:</label>
+    <input type="password" class="form-control"  name ="confpassword" placeholder="Enter Password" required>
+    
+    </div> 
+    <br> <br>
+    <div>
+    <input type="submit" class="btn btn-lg btn-primary active" value="Register Now" >
+    </div>
+    
+    
+    
+    </form>
+    </div>
+    </div>
+   

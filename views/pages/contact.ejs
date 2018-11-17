@@ -1,0 +1,78 @@
+
+
+<%- contentFor('hero') %>
+
+<div class="container-fluid">
+    
+     <span class="place-header"> <h2 class="regist"> CONTACT US</h2> </span>
+    <div class="jumbotron text-center">
+
+<% if (error.length>0){ %>
+  
+  <% for (const error of locals.error){ %> 
+    <div class="alert-danger"><h3><%= error.msg %></h3> </div> 
+  <% } %>
+  <% }  %>
+    
+        
+          <% if (error_msg.length>0){ %>
+  
+  
+   <h3> <div class="alert-danger"><%=error_msg%></div> </h3>
+  
+  <% }  %>
+        <% if (success_msg.length>0){ %>
+  
+    <h3><div class="alert alert-info"><%=success_msg%> </div> </h3>
+ 
+  <% }  %>
+    
+        
+      <form    method="post"  action="/contact-us" >
+          <div class="form-group"style="margin:auto">
+
+    <div class ="col-sm-10">
+    <input type="text" class="form-control" id="name" name="name" placeholder="ENTER FULL NAME" value="">
+ 
+              </div>
+        
+              </div>
+<div class="form-group">
+     
+    <div class ="col-sm-10">
+    <input type="email" class="form-control" id="email" name="email" placeholder="ENTER EMAIL ADDRESS" value="" required>
+
+    </div>
+    
+          </div>
+    <div class="form-group">
+  
+    <div class ="col-sm-10">
+    <input type="text" class="form-control" id="subject" name="subject" value="" placeholder="SUBJECT">
+  
+    </div>
+          </div>
+    <div class="form-group">
+      
+        <div class="col-sm-10">
+        <textarea class ="form-control" rows="10" name="message" id="message" placeholder="TYPE IN YOUR MESSAGE"></textarea>
+            <br>          
+        </div>
+          </div>
+    <div class="form-group">
+    <div class="col-sm-10 col-sm-offset-2">
+        <input id="submit" name="submit" type="submit" value="Send" class="btn-primary"  >
+        </div>
+        
+        </div>
+    
+    
+          
+
+    
+   </form> 
+        </div>
+</div>
+
+
+    

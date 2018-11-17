@@ -1,0 +1,55 @@
+ <%- contentFor('hero') %>
+<div class ="container-fluid">
+    
+     <h2 class="regist"> PASSWORD RESET PAGE</h2>
+    <div class="jumbotron">
+<% if (locals.error.length>0){ %>
+  
+  <% for (const error of locals.error){ %> 
+    <div class="alert-danger"><h3><%= error.msg %></h3> </div> 
+  <% } %>
+  <% }  %>
+          <% if (error_msg.length>0){ %>
+  
+  
+   <h3> <div class="alert-danger"><%=error_msg%></div> </h3>
+  
+  <% }  %>
+
+      <span class="alert-info" style="text-align:center"><p> You have directed to this page to reset your password, enter username(email address) and then create a new password </p>
+    </span>
+
+
+
+ 
+
+<form  method="post" action="/pass_reset" name="myforms">
+ 
+ <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+    </div>
+  
+   <div class="form-group">
+    <label for="pwd"> New Password:</label>
+    <input type="password" class="form-control" name="password"id="pwd" placeholder="Enter Password" required>
+    </div>
+  <div class="form-group">
+    <label for="repwd">Confirm Password:</label>
+    <input type="password" class="form-control"  name ="confpassword" placeholder="Enter Password" required>
+    
+    </div> 
+    
+    <br> <br>
+    <div>
+    <input type="submit" class="btn btn-lg btn-primary active" value="submit" >
+    </div>
+    
+    
+    
+    </form>
+    </div>
+</div>
+
+
+

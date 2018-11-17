@@ -1,0 +1,99 @@
+
+
+    <div class="container" >
+
+      <%- contentFor('hero') %>
+
+
+       <div class ="text-center">
+        <h1 class="fa fa user">Profile</h1><br>
+        <span>user :<strong> <%= user.name %></strong></span>
+
+
+
+     <div class="jumbotron" id="mast">
+         <% if (error_msg.length>0){ %>
+
+
+    <div > <p class="alert-danger"><%=error_msg%></div>
+
+  <% }  %>
+
+        <p>
+
+
+     <img src='<%=photo ===null?'':photo.photoPath%>' class='img-responsive' id='photo'>
+
+    <br>
+    <br>
+         <ul id='info-list' class=' list-group'>
+ <li class='list-group-item'>ID:<strong><%= user.id %></strong> </li>
+<li class='list-group-item'>Email:<strong><%= user.username %></strong></li>
+
+
+
+
+</ul>
+
+     <button  class='btn-default' id='but' > uploadimage</button>
+
+ <div class="container" id='forms'>
+            <form action="/uploads" method="post" enctype="multipart/form-data" id="myform" class='form-upload form-group'>
+        <input type='file' name='avatar' id='file'>
+        <input type='submit'  value='submit'>
+
+
+            </form>
+
+
+
+ <form  action='/updatephoto' method='post' enctype='multipart/form-data' id='changeinfo' class='text-right' >
+ <input type='file' name='avatar'>
+ <input type='submit' value='changePhoto'>
+
+ </form>
+            </div>
+
+        </div>
+    </div>
+<<script language='javascript'>
+let myform
+let but
+let img
+let list
+let container
+let changePhotobtn
+let changephoto
+function setup(){
+    noCanvas()
+ but = select('#but')
+  but.mouseClicked(handle)
+  img = select('#photo')
+    myform = select('#myform').hide()
+    img.size(200,200)
+
+    img.class ='img-thumbnail'
+    container = select('#forms')
+    changePhotobtn = createButton('deletephoto').addClass('btn-default')
+    container.child(changePhotobtn)
+    changePhotobtn.mousePressed(handleChange)
+  changephoto = select('#changeinfo').hide()
+}
+function handle(){
+    myform.show()
+
+    but.html('hide upload').mouseOver(()=>{
+        myform.hide()
+    })
+}
+
+function handleChange(){
+ but.hide()
+ myform.hide()
+ changephoto.show()
+
+}
+</script>
+
+
+    </div>
