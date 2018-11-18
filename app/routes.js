@@ -33,7 +33,7 @@ const pass = config.pass
   
 //  NODE MAILER TRANSPORTER OBJECT
     const transporter = nodemailer.createTransport({
-   service:'Gmail',
+   service:config.nodemailerService,
   
     auth: {
         user: config.EA,

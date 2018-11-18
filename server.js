@@ -46,7 +46,7 @@ app.use(parser.json())
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(sessions({
-  secret: 'keyboard cat',
+  secret: 'enter secret',// add the secret to the key files in the config dir
   resave: true,
   saveUninitialized: true,
  store: new MongoStore({mongooseConnection:mongoose.connection, ttl:50000})
@@ -164,10 +164,10 @@ app.use(function(err, req, res, next) {
 // USING EXPRESS-HTTP-PROXY MIDDLEWARE
 //app.use('/proxy',proxy('www.google.com'))
 
-
+// THE CODE BELOW IS FOR ADDING TLS encryption via the https 
 /* var options={
-    key:fs.readFileSync('./tls/localhost.pem'),
-    cert:fs.readFileSync('./tls/localhost.crt'),
+    key:fs.readFileSync('./tls/localhost.pem'),// directory with the private key generated
+    cert:fs.readFileSync('./tls/localhost.crt'),// path to the certificate 
     requestCert:false,
     rejectUnauthorized:false,
     ciphers: 'ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES256-SHA384',
