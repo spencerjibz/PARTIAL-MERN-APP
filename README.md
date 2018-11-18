@@ -29,5 +29,6 @@
 - Edit the keys.js file in the config folder, add  the mongodb uri and the email credentials
  + >> Start the App using command below and check it out at [http://localhost:9000](http://localhost:9000)
  
- ``` npm start ``
- 3. sign up, login and checkout all the features 
+ ``` npm start ```
+ 
+ 3. **sign up, login and checkout all the features** 
