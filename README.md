@@ -27,6 +27,24 @@
  
   ``` git clone https://github.com/spencerjibz/MERNAPP && cd MERNAPP && npm install ```
 - Edit the keys.js file in the config folder, add  the mongodb uri and the email credentials
+```
+/config/keys.js
+
+module.exports ={
+    // enter the uri for production mongodb 
+    prod: process.env.DBURI|| 'mongodb://<username>:<password without special characters></passwordwithout>@ds024748.mlab.com:24748/myusers',
+    // uri for mongodb installed locally, enter the database name
+    home:'mongodb://localhost:27017/databasename',
+    // enter your email address below
+    EA: process.env.EA||'example@domain.com',
+    // enter your password for nodemailer auth
+    pass: process.env.pass||'password',
+    //enter the port of your app 
+    PORT:process.env.PORT||9000
+}
+
+
+```
  + >> Start the App using command below and check it out at [http://localhost:9000](http://localhost:9000)
  
  ``` npm start ```
