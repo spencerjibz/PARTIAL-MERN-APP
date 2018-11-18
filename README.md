@@ -6,6 +6,8 @@
 
 - Email account for nodemailer
 
+- Nodejs
+
 ## Application Specs
 - sends emails using nodemailer
 - uses both ejs and react(jsx) 
@@ -18,3 +20,14 @@
 
 ## Usage
  1 .**[checkout the LiveDemo](http://thunix.org:9000)**
+ 
+ 2 .**For copy of the app**
+ 
+ - clone the repo or download zipped folder
+ 
+  ``` git clone https://github.com/spencerjibz/MERNAPP && cd MERNAPP && npm install ```
+- Edit the keys.js file in the config folder, add  the mongodb uri and the email credentials
+ + >> Start the App using command below and check it out at [http://localhost:9000](http://localhost:9000)
+ 
+ ``` npm start ``
+ 3. sign up, login and checkout all the features 
