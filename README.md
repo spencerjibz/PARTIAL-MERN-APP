@@ -16,3 +16,5 @@
 - Hybrid App with both CRUD and an API for react client
 - Media player and webcam in the projects page 
 
+## Usage
+ 1 .**[checkout the LiveDemo](http://thunix.org:9000)**
