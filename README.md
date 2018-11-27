@@ -12,7 +12,7 @@
 - sends emails using nodemailer
 - uses both ejs and react(jsx) 
 - authentication and authorization is supported using passport and express auth middleware
-- mongoose ORM for mongodb
+- mongoose ODM for mongodb
 - fs module for used to manage some files (profile page)
 - os module for get platform information used to edit directorypaths specific to each platform
 - Hybrid App with both CRUD and an API for react client
