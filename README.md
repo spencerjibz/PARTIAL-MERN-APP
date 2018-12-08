@@ -12,7 +12,7 @@
 - sends emails using nodemailer
 - uses both ejs and react(jsx) 
 - authentication and authorization is supported using passport and express auth middleware
-- mongoose ORM for mongodb
+- mongoose ODM for mongodb
 - fs module for used to manage some files (profile page)
 - os module for get platform information used to edit directorypaths specific to each platform
 - Hybrid App with both CRUD and an API for react client
@@ -25,7 +25,7 @@
  
  - clone the repo or download zipped folder
  
-  ``` git clone https://github.com/spencerjibz/MERNAPP && cd MERNAPP && npm install ```
+  ``` git clone https://github.com/spencerjibz/MERNAPP.git && cd MERNAPP && npm install ```
 - Edit the keys.js file in the config folder, add  the mongodb uri and the email credentials
 ```
 /config/keys.js
@@ -35,6 +35,8 @@ module.exports ={
     prod: process.env.DBURI|| 'mongodb://<username>:<password without special characters></passwordwithout>@ds024748.mlab.com:24748/myusers',
     // uri for mongodb installed locally, enter the database name
     home:'mongodb://localhost:27017/databasename',
+    // enter your mailing service for node-mailer
+    nodemailerService: process.env.nodemailerService||'Gmail',
     // enter your email address below
     EA: process.env.EA||'example@domain.com',
     // enter your password for nodemailer auth
@@ -42,6 +44,7 @@ module.exports ={
     //enter the port of your app 
     PORT:process.env.PORT||9000
 }
+
 
 
 ```
