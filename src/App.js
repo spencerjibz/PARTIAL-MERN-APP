@@ -22,13 +22,13 @@ class App extends Component{
 
   componentDidMount(){
 
-    fetch(`http://localhost:9000/auth/ext/user/${usernameFormServer}`).then(res=>res.json()).then(data=>{
+    fetch(`/auth/ext/user/${usernameFormServer}`).then(res=>res.json()).then(data=>{
   let arr = [data]
       this.setState({userdata:arr,isUser:true
       })
     })
 
-    fetch(`http://localhost:9000/auth/ext/photo/${usernameFormServer}`).then(res=>res.json()).then(photo=>{
+    fetch(`/auth/ext/photo/${usernameFormServer}`).then(res=>res.json()).then(photo=>{
     if(photo.hasOwnProperty('error'))
 
 {
