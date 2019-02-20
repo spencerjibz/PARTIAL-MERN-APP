@@ -19,7 +19,7 @@
 - Media player and webcam in the projects page 
 
 ## Usage
- 1 .**[checkout the LiveDemo](http://thunix.org:9000)**
+ 1 .**[checkout the LiveDemo](https://hidden-earth-45154.herokuapp.com/)**
  
  2 .**For copy of the app**
  
