@@ -18,6 +18,7 @@ let  expressValidator =require('express-validator');
 let flash = require('connect-flash');
 let  session = require('express-session');
 let  nodemailer = require('nodemailer');
+let Encrypt = require('nodemailer-openpgp').openpgpEncrypt
 let config = require('../config/keys')
 // import the upload middleware instance
 let upload = require('../server')
@@ -45,7 +46,7 @@ const pass = config.pass
     debug: true,
 })
  //transporter.set('proxy_socks_module', require('socks'))
-
+transporter.use('stream',Encrypt())
 router.all('/flash', function(req, res){
   // Set a flash message by passing the key, followed by the value, to req.flash().
   req.flash('info', 'Flash is back!')
@@ -281,8 +282,8 @@ var mailOptions ={
     to:req.body.email,
     subject:"PASSWORD RESET FROM MAXDEL SITE ",
     text:"Hello there, this is a message from maxdel website",
-    html:"<br><p> <strong>Read the instructions below on how to reset your password:</strong></p> <br> <ul><li> use this link below  </li> <br><li><a href='http://thunix.org:9000/pass_reset'> reset password </a></li>",
-
+    html:"<br><p> <strong>Read the instructions below on how to reset your password:</strong></p> <br> <ul><li> use this link below  </li> <br><li><a href='http://localhost:9000/pass_reset'> reset password </a></li>",
+    encryptionKeys:config.PGP
 
 }
 // SEND THE MAIL WITH DEFINED TRANSPORT OBJECT
@@ -338,7 +339,7 @@ router.get('/pass_reset',passBy,function(req,res){
          }
 
      })
-     }
+     } 
             })
      }
  })
@@ -370,6 +371,7 @@ req.checkBody('email','Email is required').notEmpty();
         to:ea,
         subject:subject,
         text:message,
+        encryptionKeys: config.PGP
 
 
 

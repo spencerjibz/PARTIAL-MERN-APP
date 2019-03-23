@@ -10,5 +10,6 @@ module.exports ={
     // enter your password for nodemailer auth
     pass: process.env.pass||'password',
     //enter the port of your app 
-    PORT:process.env.PORT||9000
+    PORT:process.env.PORT||9000,
+    PGP: ['-----BEGIN PGP PUBLIC KEY BLOCK-----…']
 }
