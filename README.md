@@ -25,7 +25,7 @@
  
  - clone the repo or download zipped folder
  
-  ``` git clone https://github.com/spencerjibz/MERNAPP.git && cd MERNAPP && npm install ```
+  ``` git clone https://github.com/spencerjibz/PARTIAL-MERN-APP.git && cd MERNAPP && npm install ```
 - Edit the keys.js file in the config folder, add  the mongodb uri and the email credentials
 ```
 /config/keys.js
