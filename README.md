@@ -1,4 +1,4 @@
-# [PARTIAL MERNAPP](https://hidden-earth-45154.herokuapp.com/)
+# [PARTIAL MERNAPP](https://calm-garden-31265.herokuapp.com/)
  THIS IS A HYBRID APP WITH BOTH A CRUD LAYER AND A REST API FOR REACT. ITS A COMPLETE HACK INTO MERN STACK WITHOUT USING TWO DIFFERENT SERVERS (ONE FOR BACKEND AND THE OTHER FOR CLIENT). THIS APP USES BOTH EJS AND JSX . WEBPACK IS MODULE BUNDLER USED FOR THIS PROJECT 
 ## Requirements
 
@@ -19,7 +19,7 @@
 - Media player and webcam in the projects page 
 
 ## Usage
- 1 .**[checkout the LiveDemo](https://hidden-earth-45154.herokuapp.com/)**
+ 1 .**[checkout the LiveDemo](https://calm-garden-31265.herokuapp.com/)**
  
  2 .**For copy of the app**
  
