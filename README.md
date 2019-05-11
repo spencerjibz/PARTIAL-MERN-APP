@@ -19,7 +19,7 @@
 - Media player and webcam in the projects page 
 
 ## Usage
- 1 .**[checkout the LiveDemo](https://cryptic-beach-52190.herokuapp.com//)**
+ 1 .**[checkout the LiveDemo](https://cryptic-beach-52190.herokuapp.com/)**
  
  2 .**For copy of the app**
  
