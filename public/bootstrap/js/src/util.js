@@ -1,4 +1,4 @@
-import $ from 'jquery'
+import $ from "jquery";
 
 /**
  * --------------------------------------------------------------------------
@@ -8,21 +8,22 @@ import $ from 'jquery'
  */
 
 const Util = (($) => {
-
-
   /**
    * ------------------------------------------------------------------------
    * Private TransitionEnd Helpers
    * ------------------------------------------------------------------------
    */
 
-  let transition = false
+  let transition = false;
 
-  const MAX_UID = 1000000
+  const MAX_UID = 1000000;
 
   // shoutout AngusCroll (https://goo.gl/pxwQGp)
   function toType(obj) {
-    return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
+    return {}.toString
+      .call(obj)
+      .match(/\s([a-zA-Z]+)/)[1]
+      .toLowerCase();
   }
 
   function getSpecialTransitionEndEvent() {
@@ -31,56 +32,58 @@ const Util = (($) => {
       delegateType: transition.end,
       handle(event) {
         if ($(event.target).is(this)) {
-          return event.handleObj.handler.apply(this, arguments) // eslint-disable-line prefer-rest-params
+          return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
         }
-        return undefined // eslint-disable-line no-undefined
-      }
-    }
+        return undefined; // eslint-disable-line no-undefined
+      },
+    };
   }
 
   function transitionEndTest() {
     if (window.QUnit) {
-      return false
+      return false;
     }
 
     return {
-      end: 'transitionend'
-    }
+      end: "transitionend",
+    };
   }
 
   function transitionEndEmulator(duration) {
-    let called = false
+    let called = false;
 
     $(this).one(Util.TRANSITION_END, () => {
-      called = true
-    })
+      called = true;
+    });
 
     setTimeout(() => {
       if (!called) {
-        Util.triggerTransitionEnd(this)
+        Util.triggerTransitionEnd(this);
       }
-    }, duration)
+    }, duration);
 
-    return this
+    return this;
   }
 
   function setTransitionEndSupport() {
-    transition = transitionEndTest()
+    transition = transitionEndTest();
 
-    $.fn.emulateTransitionEnd = transitionEndEmulator
+    $.fn.emulateTransitionEnd = transitionEndEmulator;
 
     if (Util.supportsTransitionEnd()) {
-      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent()
+      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
   }
 
   function escapeId(selector) {
     // we escape IDs in case of special selectors (selector = '#myId:something')
     // $.escapeSelector does not exist in jQuery < 3
-    selector = typeof $.escapeSelector === 'function' ? $.escapeSelector(selector).substr(1) :
-      selector.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1')
+    selector =
+      typeof $.escapeSelector === "function"
+        ? $.escapeSelector(selector).substr(1)
+        : selector.replace(/(:|\.|\[|\]|,|=|@)/g, "\\$1");
 
-    return selector
+    return selector;
   }
 
   /**
@@ -90,75 +93,74 @@ const Util = (($) => {
    */
 
   const Util = {
-
-    TRANSITION_END: 'bsTransitionEnd',
+    TRANSITION_END: "bsTransitionEnd",
 
     getUID(prefix) {
       do {
         // eslint-disable-next-line no-bitwise
-        prefix += ~~(Math.random() * MAX_UID) // "~~" acts like a faster Math.floor() here
-      } while (document.getElementById(prefix))
-      return prefix
+        prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
+      } while (document.getElementById(prefix));
+      return prefix;
     },
 
     getSelectorFromElement(element) {
-      let selector = element.getAttribute('data-target')
-      if (!selector || selector === '#') {
-        selector = element.getAttribute('href') || ''
+      let selector = element.getAttribute("data-target");
+      if (!selector || selector === "#") {
+        selector = element.getAttribute("href") || "";
       }
 
       // if it's an ID
-      if (selector.charAt(0) === '#') {
-        selector = escapeId(selector)
+      if (selector.charAt(0) === "#") {
+        selector = escapeId(selector);
       }
 
       try {
-        const $selector = $(document).find(selector)
-        return $selector.length > 0 ? selector : null
+        const $selector = $(document).find(selector);
+        return $selector.length > 0 ? selector : null;
       } catch (error) {
-        return null
+        return null;
       }
     },
 
     reflow(element) {
-      return element.offsetHeight
+      return element.offsetHeight;
     },
 
     triggerTransitionEnd(element) {
-      $(element).trigger(transition.end)
+      $(element).trigger(transition.end);
     },
 
     supportsTransitionEnd() {
-      return Boolean(transition)
+      return Boolean(transition);
     },
 
     isElement(obj) {
-      return (obj[0] || obj).nodeType
+      return (obj[0] || obj).nodeType;
     },
 
     typeCheckConfig(componentName, config, configTypes) {
       for (const property in configTypes) {
         if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
-          const expectedTypes = configTypes[property]
-          const value         = config[property]
-          const valueType     = value && Util.isElement(value) ?
-                                'element' : toType(value)
+          const expectedTypes = configTypes[property];
+          const value = config[property];
+          const valueType =
+            value && Util.isElement(value) ? "element" : toType(value);
 
           if (!new RegExp(expectedTypes).test(valueType)) {
             throw new Error(
               `${componentName.toUpperCase()}: ` +
-              `Option "${property}" provided type "${valueType}" ` +
-              `but expected type "${expectedTypes}".`)
+                `Option "${property}" provided type "${valueType}" ` +
+                `but expected type "${expectedTypes}".`,
+            );
           }
         }
       }
-    }
-  }
+    },
+  };
 
-  setTransitionEndSupport()
+  setTransitionEndSupport();
 
-  return Util
+  return Util;
+})($);
 
-})($)
-
-export default Util
+export default Util;

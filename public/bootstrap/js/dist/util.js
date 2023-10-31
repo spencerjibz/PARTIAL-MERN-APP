@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-var Util = function ($) {
+var Util = (function ($) {
   /**
    * ------------------------------------------------------------------------
    * Private TransitionEnd Helpers
@@ -14,7 +14,10 @@ var Util = function ($) {
   var MAX_UID = 1000000; // shoutout AngusCroll (https://goo.gl/pxwQGp)
 
   function toType(obj) {
-    return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+    return {}.toString
+      .call(obj)
+      .match(/\s([a-zA-Z]+)/)[1]
+      .toLowerCase();
   }
 
   function getSpecialTransitionEndEvent() {
@@ -27,7 +30,7 @@ var Util = function ($) {
         }
 
         return undefined; // eslint-disable-line no-undefined
-      }
+      },
     };
   }
 
@@ -37,7 +40,7 @@ var Util = function ($) {
     }
 
     return {
-      end: 'transitionend'
+      end: "transitionend",
     };
   }
 
@@ -68,7 +71,10 @@ var Util = function ($) {
   function escapeId(selector) {
     // we escape IDs in case of special selectors (selector = '#myId:something')
     // $.escapeSelector does not exist in jQuery < 3
-    selector = typeof $.escapeSelector === 'function' ? $.escapeSelector(selector).substr(1) : selector.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1');
+    selector =
+      typeof $.escapeSelector === "function"
+        ? $.escapeSelector(selector).substr(1)
+        : selector.replace(/(:|\.|\[|\]|,|=|@)/g, "\\$1");
     return selector;
   }
   /**
@@ -77,9 +83,8 @@ var Util = function ($) {
    * --------------------------------------------------------------------------
    */
 
-
   var Util = {
-    TRANSITION_END: 'bsTransitionEnd',
+    TRANSITION_END: "bsTransitionEnd",
     getUID: function getUID(prefix) {
       do {
         // eslint-disable-next-line no-bitwise
@@ -89,14 +94,13 @@ var Util = function ($) {
       return prefix;
     },
     getSelectorFromElement: function getSelectorFromElement(element) {
-      var selector = element.getAttribute('data-target');
+      var selector = element.getAttribute("data-target");
 
-      if (!selector || selector === '#') {
-        selector = element.getAttribute('href') || '';
+      if (!selector || selector === "#") {
+        selector = element.getAttribute("href") || "";
       } // if it's an ID
 
-
-      if (selector.charAt(0) === '#') {
+      if (selector.charAt(0) === "#") {
         selector = escapeId(selector);
       }
 
@@ -119,21 +123,35 @@ var Util = function ($) {
     isElement: function isElement(obj) {
       return (obj[0] || obj).nodeType;
     },
-    typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
+    typeCheckConfig: function typeCheckConfig(
+      componentName,
+      config,
+      configTypes,
+    ) {
       for (var property in configTypes) {
         if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
           var expectedTypes = configTypes[property];
           var value = config[property];
-          var valueType = value && Util.isElement(value) ? 'element' : toType(value);
+          var valueType =
+            value && Util.isElement(value) ? "element" : toType(value);
 
           if (!new RegExp(expectedTypes).test(valueType)) {
-            throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
+            throw new Error(
+              componentName.toUpperCase() +
+                ": " +
+                ('Option "' +
+                  property +
+                  '" provided type "' +
+                  valueType +
+                  '" ') +
+                ('but expected type "' + expectedTypes + '".'),
+            );
           }
         }
       }
-    }
+    },
   };
   setTransitionEndSupport();
   return Util;
-}($);
+})($);
 //# sourceMappingURL=util.js.map

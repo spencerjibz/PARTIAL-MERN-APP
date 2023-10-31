@@ -11,27 +11,28 @@
  * and all the types / interfaces are top-level named exports.
  */
 declare namespace Popper {
-  export type Position = 'top' | 'right' | 'bottom' | 'left';
+  export type Position = "top" | "right" | "bottom" | "left";
 
-  export type Placement = 'auto-start'
-    | 'auto'
-    | 'auto-end'
-    | 'top-start'
-    | 'top'
-    | 'top-end'
-    | 'right-start'
-    | 'right'
-    | 'right-end'
-    | 'bottom-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'left-end'
-    | 'left'
-    | 'left-start';
+  export type Placement =
+    | "auto-start"
+    | "auto"
+    | "auto-end"
+    | "top-start"
+    | "top"
+    | "top-end"
+    | "right-start"
+    | "right"
+    | "right-end"
+    | "bottom-end"
+    | "bottom"
+    | "bottom-start"
+    | "left-end"
+    | "left"
+    | "left-start";
 
-  export type Boundary = 'scrollParent' | 'viewport' | 'window';
+  export type Boundary = "scrollParent" | "viewport" | "window";
 
-  export type Behavior = 'flip' | 'clockwise' | 'counterclockwise';
+  export type Behavior = "flip" | "clockwise" | "counterclockwise";
 
   export type ModifierFn = (data: Data, options: Object) => Data;
 
@@ -44,33 +45,33 @@ declare namespace Popper {
   export interface Modifiers {
     shift?: BaseModifier;
     offset?: BaseModifier & {
-      offset?: number | string,
+      offset?: number | string;
     };
     preventOverflow?: BaseModifier & {
-      priority?: Position[],
-      padding?: number,
-      boundariesElement?: Boundary | Element,
-      escapeWithReference?: boolean
+      priority?: Position[];
+      padding?: number;
+      boundariesElement?: Boundary | Element;
+      escapeWithReference?: boolean;
     };
     keepTogether?: BaseModifier;
     arrow?: BaseModifier & {
-      element?: string | Element,
+      element?: string | Element;
     };
     flip?: BaseModifier & {
-      behavior?: Behavior | Position[],
-      padding?: number,
-      boundariesElement?: Boundary | Element,
+      behavior?: Behavior | Position[];
+      padding?: number;
+      boundariesElement?: Boundary | Element;
     };
     inner?: BaseModifier;
     hide?: BaseModifier;
     applyStyle?: BaseModifier & {
-      onLoad?: Function,
-      gpuAcceleration?: boolean,
+      onLoad?: Function;
+      gpuAcceleration?: boolean;
     };
     computeStyle?: BaseModifier & {
       gpuAcceleration?: boolean;
-      x?: 'bottom' | 'top',
-      y?: 'left' | 'right'
+      x?: "bottom" | "top";
+      y?: "left" | "right";
     };
 
     [name: string]: (BaseModifier & Record<string, any>) | undefined;
@@ -94,12 +95,12 @@ declare namespace Popper {
     arrowStyles: CSSStyleDeclaration;
     boundaries: Object;
     offsets: {
-      popper: Offset,
-      reference: Offset,
+      popper: Offset;
+      reference: Offset;
       arrow: {
-        top: number,
-        left: number,
-      },
+        top: number;
+        left: number;
+      };
     };
   }
 
@@ -144,7 +145,11 @@ declare class Popper {
 
   options: PopperOptions;
 
-  constructor(reference: Element | ReferenceObject, popper: Element, options?: PopperOptions);
+  constructor(
+    reference: Element | ReferenceObject,
+    popper: Element,
+    options?: PopperOptions,
+  );
 
   destroy(): void;
 

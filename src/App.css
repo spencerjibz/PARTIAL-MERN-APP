@@ -1,27 +1,19 @@
-
-#container{
-  margin:20px;
-
+#container {
+  margin: 20px;
 
   background-color: cream;
-
 }
-.form-group{
-  list-style-type:none;
-
+.form-group {
+  list-style-type: none;
 }
-#results{
-  float:right;
-  padding:50px;
-
+#results {
+  float: right;
+  padding: 50px;
 }
-#profile-photo{
-  background-color:#14141414;
-  float:left;
-
-
+#profile-photo {
+  background-color: #14141414;
+  float: left;
 }
-#upload{
-
-  padding:1em;
+#upload {
+  padding: 1em;
 }
